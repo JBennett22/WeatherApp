@@ -2,6 +2,8 @@ import React from "react"
 import { View, Text, SafeAreaView, StyleSheet } from 'react-native'
 import { Feather } from '@expo/vector-icons';
 
+//CurrentWeather component. Returns some JSX code that is turned into javascript under the hood by babel. It is then exported and rendered to the user.
+
 const CurrentWeather = () => {
   return (
     <SafeAreaView style={styles.wrapper}>
@@ -59,7 +61,6 @@ const styles = StyleSheet.create({
   message: {
     fontSize: 30
   }
-
 })
 
 export default CurrentWeather

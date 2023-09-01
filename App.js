@@ -1,11 +1,14 @@
+//Root component (App.js) that is entry point for application
 import React from "react"
 import { View, StyleSheet } from "react-native"
 import CurrentWeather from "./src/components/CurrentWeather"
+import UpcomingWeather from "./src/components/UpcomingWeather"
 
 const App = () => {
   return (
     <View style={styles.container}>
-      <CurrentWeather />
+      {/* <CurrentWeather /> */}
+      <UpcomingWeather />
     </View>
   )
 }
@@ -15,4 +18,5 @@ const styles = StyleSheet.create({
     flex: 1
   }
 })
+
 export default App
