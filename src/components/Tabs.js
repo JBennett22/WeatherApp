@@ -1,3 +1,4 @@
+// Component that sets up and controls the tabs
 import React from "react"
 import CurrentWeather from "../screens/CurrentWeather"
 import UpcomingWeather from "../screens/UpcomingWeather"
