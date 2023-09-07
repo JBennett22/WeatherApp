@@ -2,6 +2,7 @@ import React from "react"
 import { View, Text, SafeAreaView, StyleSheet } from 'react-native'
 import { Feather } from '@expo/vector-icons';
 import RowText from "../components/RowText";
+import { weatherType } from "../utilities/weatherType";
 
 //CurrentWeather component. Returns some JSX code that is turned into javascript under the hood by babel. It is then exported and rendered to the user.
 
@@ -22,7 +23,7 @@ const CurrentWeather = () => {
       </View>
       <RowText 
         messageOne={'Its sunny'} 
-        messageTwo={'Its perfect t-shirt weather'} 
+        messageTwo={weatherType['Thunderstorm'].message} 
         containerStyles={styles.bodyWrapper} 
         messageOneStyles={styles.description} 
         messageTwoStyles={styles.message} 
