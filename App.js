@@ -22,10 +22,11 @@ const App = () => {
 
   return (
     <View style={Styles.container}>
-      {loading ? (
-        <ActivityIndicator size={'large'} color={'blue'} />
-      ) : (
+      {/* If error, show error screen, otherwise show ActivityIndicator (loading wheel) */}
+      {error ? (
         <ErrorItem />
+      ) : (
+        <ActivityIndicator size={'large'} color={'blue'} />
       )}
     </View>
   )

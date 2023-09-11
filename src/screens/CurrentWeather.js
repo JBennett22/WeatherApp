@@ -7,13 +7,13 @@ import { weatherType } from "../utilities/weatherType";
 //CurrentWeather component. Returns some JSX code that is turned into javascript under the hood by babel. It is then exported and rendered to the user.
 const CurrentWeather = ({ weatherData }) => {
   const { main: { temp, feels_like, temp_max, temp_min }, weather} = weatherData
-  const weatherCondition = weather[0].main
+  const weatherCondition = weather[0]?.main
 
   return (
-    <SafeAreaView style={[styles.wrapper, { backgroundColor: weatherType[weatherCondition].backgroundColor }]}>
+    <SafeAreaView style={[styles.wrapper, { backgroundColor: weatherType[weatherCondition]?.backgroundColor }]}>
       <View style={styles.container}>
-        <Feather name={weatherType[weatherCondition].icon} size={100} color='white'></Feather>
-        <Text style={styles.tempStyles}>{temp}</Text>
+        <Feather name={weatherType[weatherCondition]?.icon} size={100} color='white'></Feather>
+        <Text style={styles.tempStyles}>{`${temp}°`}</Text>
         <Text style={styles.feels}>{`Feels like ${feels_like}°`}</Text>
         <RowText 
           messageOne={`High: ${temp_max}° `} 
@@ -24,8 +24,8 @@ const CurrentWeather = ({ weatherData }) => {
         />
       </View>
       <RowText 
-        messageOne={weather[0].description} 
-        messageTwo={weatherType[weatherCondition].message} 
+        messageOne={weather[0]?.description} 
+        messageTwo={weatherType[weatherCondition]?.message} 
         containerStyles={styles.bodyWrapper} 
         messageOneStyles={styles.description} 
         messageTwoStyles={styles.message} 
@@ -36,8 +36,7 @@ const CurrentWeather = ({ weatherData }) => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1,
-    backgroundColor: 'pink'
+    flex: 1
   },
   container: {
     flex: 1,
@@ -66,10 +65,10 @@ const styles = StyleSheet.create({
     marginBottom: 40
   },
   description: {
-    fontSize: 48
+    fontSize: 43
   },
   message: {
-    fontSize: 30
+    fontSize: 25
   }
 })
 
