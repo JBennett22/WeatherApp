@@ -9,7 +9,7 @@ const UpcomingWeather = ({ weatherData}) => {
     const { container, image } = styles
     return (
         <SafeAreaView style={container}>
-            <ImageBackground source={require('../../assets/Clouds.jpg')} style={image}>
+            <ImageBackground source={require('../../assets/Sky.jpg')} style={image}>
                 <FlatList data={weatherData} renderItem={renderItem} keyExtractor={(item) => item.dt_txt} />
             </ImageBackground>
         </SafeAreaView>
