@@ -13,7 +13,7 @@ export const useGetWeather = () => {
     // Fetch the weather based on location from the API
     const fetchWeatherData = async () => {
         try {
-            const res = await fetch(`api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}`)
+            const res = await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}`)
             const data = await res.json()
             setWeather(data)
         } catch (error) {
@@ -23,6 +23,7 @@ export const useGetWeather = () => {
         }
     }
 
+    // Hook for fetching data side effect 
     useEffect(() => {
         ;(async() => {
             let { status } = await Location.requestForegroundPermissionsAsync()
@@ -36,5 +37,6 @@ export const useGetWeather = () => {
             await fetchWeatherData()
         })()
     }, [lat, lon])
+    // Return peices of state needed by app component
     return [loading, error, weather]
 }

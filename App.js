@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react"
 import { View, ActivityIndicator, StyleSheet } from "react-native"
 import { NavigationContainer } from "@react-navigation/native"
 import Tabs from "./src/components/Tabs"
-import * as Location from 'expo-location'
-import { WEATHER_API_KEY } from '@env';
 import { useGetWeather } from "./src/hooks/useGetWeather"
 
 const App = () => {
@@ -12,18 +10,19 @@ const App = () => {
 
   console.log(loading, error, weather)
 
-  if (loading) {
+  // If weather with data exists -> render weather
+  if (weather && weather.list) {
     return (
-      <View style={Styles.container}>
-        <ActivityIndicator size={'large'} color={'blue'} />
-      </View>
+      <NavigationContainer>
+        <Tabs weather={weather} />
+      </NavigationContainer>
     )
   }
 
   return (
-    <NavigationContainer>
-      <Tabs />
-    </NavigationContainer>
+    <View style={Styles.container}>
+      <ActivityIndicator size={'large'} color={'blue'} />
+    </View>
   )
 }
 

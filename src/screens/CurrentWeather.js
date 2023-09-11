@@ -5,8 +5,8 @@ import RowText from "../components/RowText";
 import { weatherType } from "../utilities/weatherType";
 
 //CurrentWeather component. Returns some JSX code that is turned into javascript under the hood by babel. It is then exported and rendered to the user.
-
-const CurrentWeather = () => {
+const CurrentWeather = ({ weatherData }) => {
+  console.log(weatherData)
   return (
     <SafeAreaView style={styles.wrapper}>
       <View style={styles.container}>
