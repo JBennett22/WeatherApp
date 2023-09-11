@@ -9,8 +9,6 @@ import ErrorItem from "./src/components/ErrorItem"
 const App = () => {
   const [loading, error, weather] = useGetWeather()
 
-  console.log(loading, error, weather)
-
   // If weather with data exists -> render weather
   if (weather && weather.list) {
     return (
